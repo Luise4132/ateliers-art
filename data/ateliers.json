@@ -1,0 +1,37 @@
+{
+  "ateliers": [
+    {
+      "id": "a001",
+      "date": "2026-07-04",
+      "heure": "14:00",
+      "duree": "3h",
+      "niveau": "Tous niveaux",
+      "theme": "Initiation à l'aquarelle florale",
+      "prix": 35,
+      "places_total": 8,
+      "places_restantes": 3
+    },
+    {
+      "id": "a002",
+      "date": "2026-07-18",
+      "heure": "10:00",
+      "duree": "4h",
+      "niveau": "Intermédiaire",
+      "theme": "Portrait à l'acrylique",
+      "prix": 45,
+      "places_total": 6,
+      "places_restantes": 6
+    },
+    {
+      "id": "a003",
+      "date": "2026-09-12",
+      "heure": "14:00",
+      "duree": "3h",
+      "niveau": "Débutant",
+      "theme": "Le dessin au stylo bille : ombres et hachures",
+      "prix": 30,
+      "places_total": 8,
+      "places_restantes": 5
+    }
+  ]
+}

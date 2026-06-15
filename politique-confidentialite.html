@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- politique-confidentialite.html — Version page autonome de la politique de confidentialité
+     (mêmes informations accessibles en modale depuis le footer). -->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Politique de confidentialité | Ateliers d'Art</title>
+  <meta name="description" content="Politique de confidentialité de l'Ateliers d'Art : données collectées, durée de conservation, droits RGPD et hébergement.">
+  <link rel="canonical" href="https://pascaleabramovici.com/politique-confidentialite.html">
+  <link rel="icon" href="images/ui/favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/cookies.js" defer></script>
+  <script src="js/modales.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Passer au contenu</a>
+  <header class="site-header">
+    <a class="logo" href="index.html">Ateliers&nbsp;<span>d'Art</span></a>
+    <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-principale">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-principale" id="nav-principale" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="galerie.html">Œuvres</a></li>
+        <li><a href="atelier.html">Atelier</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenu">
+    <header class="page-entete"><h1>Politique de confidentialité</h1></header>
+    <section>
+      <div class="conteneur">
+        <h2>Données collectées</h2>
+        <p>Ce site collecte les données suivantes via ses formulaires :</p>
+        <p>– Nom et prénom<br>– Adresse email<br>– Numéro de téléphone (formulaire atelier uniquement)<br>– Message</p>
+        <p>Ces données sont collectées uniquement pour répondre à vos demandes ou gérer vos inscriptions aux ateliers.</p>
+        <h2>Responsable du traitement</h2>
+        <!-- TODO: vraies informations -->
+        <p>Pascal Abramovici</p>
+        <h2>Durée de conservation</h2>
+        <p>Vos données sont conservées 3 ans à compter de votre dernier contact.</p>
+        <h2>Vos droits</h2>
+        <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données.
+           Pour exercer ces droits, contactez-nous par courrier à l'adresse de l'atelier ou via le formulaire de contact.</p>
+        <h2>Cookies</h2>
+        <p>Ce site utilise des cookies. Consultez notre politique de gestion des cookies via le lien
+           « Gérer mes cookies » en bas de page.</p>
+        <h2>Hébergement des données</h2>
+        <p>Les formulaires sont traités par Netlify (San Francisco, CA, USA) —
+           <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-contenu">
+      <div>
+        <p class="footer-nom">Ateliers d'Art</p>
+        <p>45 Rue de la Poste, 36000 Châteauroux</p>
+        <p>06 77 69 73 63</p>
+      </div>
+      <nav aria-label="Navigation pied de page">
+        <h4>Navigation</h4>
+        <a href="index.html">Accueil</a>
+        <a href="galerie.html">Œuvres</a>
+        <a href="atelier.html">Atelier</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div>
+        <h4>Suivez-moi</h4>
+        <a href="https://www.instagram.com/abramo_peintures?igsh=MXZ4Y2VhZnNnN2l3cw==" target="_blank" rel="noopener">Instagram</a><br>
+        <a href="https://www.facebook.com/share/1cfA1jjfPq/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bas">
+      <p>© <span class="annee-courante">2025</span> Pascal Abramovici. Tous droits réservés.</p>
+      <div class="footer-liens-legaux">
+        <button onclick="ouvrirModale('mentions-legales')">Mentions légales</button>
+        <button onclick="ouvrirModale('confidentialite')">Politique de confidentialité</button>
+        <button onclick="ouvrirModale('cookies')">Gérer mes cookies</button>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

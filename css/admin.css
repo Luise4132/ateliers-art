@@ -1,0 +1,87 @@
+/* ============================================================
+   admin.css
+   Rôle : interface d'administration (connexion + panneaux toiles/ateliers).
+   Dépendances : style.css (variables). Utilisé par admin.html + admin.js.
+   ============================================================ */
+
+.admin-page { padding-top: 90px; min-height: 100vh; background: var(--c-fond); }
+
+/* ---------- Connexion ---------- */
+.admin-login {
+  max-width: 420px;
+  margin: var(--espace-xl) auto;
+  background: var(--c-fond-clair);
+  padding: var(--espace-lg);
+  border-radius: var(--rayon-lg);
+  box-shadow: var(--ombre);
+  text-align: center;
+}
+.admin-login h1 { margin-bottom: var(--espace-sm); }
+.admin-login .erreur-login { color: #b00020; font-size: var(--fs-petit); min-height: 1.2em; }
+
+/* ---------- Panneau ---------- */
+.admin-panneau { display: none; max-width: var(--largeur-contenu); margin-inline: auto; padding: var(--espace-md); }
+.admin-panneau.visible { display: block; }
+
+.admin-entete { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--espace-sm); margin-bottom: var(--espace-md); }
+
+.admin-onglets { display: flex; gap: var(--espace-xs); margin-bottom: var(--espace-md); border-bottom: 2px solid var(--c-bordure); }
+.admin-onglet {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  min-height: 44px;
+  cursor: pointer;
+  font-family: var(--font-corps);
+  font-weight: 700;
+  color: var(--c-texte-secondaire);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+.admin-onglet.actif { color: var(--c-primaire); border-bottom-color: var(--c-primaire); }
+
+.admin-section { display: none; }
+.admin-section.actif { display: block; }
+
+.admin-bloc {
+  background: var(--c-fond-clair);
+  border: 1px solid var(--c-bordure);
+  border-radius: var(--rayon-md);
+  padding: var(--espace-md);
+  margin-bottom: var(--espace-md);
+}
+.admin-bloc h2 { font-size: var(--fs-h3); margin-bottom: var(--espace-sm); }
+
+/* Formulaire admin en grille */
+.admin-grille {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--espace-sm);
+}
+.admin-grille .champ.plein { grid-column: 1 / -1; }
+.admin-grille .cases { display: flex; flex-wrap: wrap; gap: var(--espace-md); grid-column: 1 / -1; }
+.admin-grille .case { display: flex; align-items: center; gap: 0.5rem; }
+.admin-grille .case input { width: 20px; height: 20px; }
+
+/* Liste d'éléments */
+.admin-liste { display: flex; flex-direction: column; gap: var(--espace-xs); }
+.admin-item {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-sm);
+  padding: var(--espace-sm);
+  border: 1px solid var(--c-bordure);
+  border-radius: var(--rayon);
+  background: var(--c-fond);
+}
+.admin-item img { width: 60px; height: 45px; border-radius: var(--rayon); flex-shrink: 0; }
+.admin-item .item-infos { flex: 1; min-width: 0; }
+.admin-item .item-titre { font-weight: 700; }
+.admin-item .item-meta { font-size: var(--fs-petit); color: var(--c-texte-secondaire); }
+.admin-item .item-actions { display: flex; gap: var(--espace-xs); }
+.btn-petit { min-height: 44px; padding: 0.4rem 0.9rem; font-size: var(--fs-petit); border-radius: var(--rayon); cursor: pointer; border: 1px solid var(--c-bordure); background: #fff; font-family: var(--font-corps); }
+.btn-petit:hover { border-color: var(--c-primaire); color: var(--c-primaire); }
+.btn-danger { border-color: #b00020; color: #b00020; }
+.btn-danger:hover { background: #b00020; color: #fff; }
+
+.admin-export { display: flex; flex-wrap: wrap; gap: var(--espace-sm); align-items: center; margin-top: var(--espace-md); }

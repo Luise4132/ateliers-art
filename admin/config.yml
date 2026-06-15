@@ -1,0 +1,103 @@
+# admin/config.yml — Configuration de Decap CMS pour les Ateliers d'Art.
+#
+# Ce fichier décrit l'interface de gestion en ligne. Il modifie directement
+# les fichiers data/toiles.json et data/ateliers.json (la structure reste
+# identique, donc le site continue de fonctionner sans changement).
+#
+# ⚠️ "branch" doit correspondre à la branche principale de ton dépôt GitHub.
+#    GitHub crée aujourd'hui "main" par défaut. Si ton dépôt utilise "master",
+#    remplace main par master ci-dessous.
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Langue de l'interface
+locale: fr
+
+# Messages affichés en bas des écrans d'édition (optionnel)
+site_url: https://pascaleabramovici.com
+display_url: https://pascaleabramovici.com
+
+# Dossier où sont enregistrées les images téléversées + chemin utilisé dans le site
+media_folder: "images/toiles"
+public_folder: "images/toiles"
+
+collections:
+  # ---------- ŒUVRES ----------
+  - name: "oeuvres"
+    label: "Œuvres (toiles)"
+    label_singular: "œuvre"
+    files:
+      - name: "toiles"
+        label: "Liste des œuvres"
+        file: "data/toiles.json"
+        description: "Ajoutez, modifiez ou supprimez vos œuvres. Pensez à téléverser une photo pour chacune."
+        fields:
+          - label: "Œuvres"
+            name: "toiles"
+            label_singular: "œuvre"
+            widget: "list"
+            summary: "{{fields.titre}} — {{fields.technique}}"
+            fields:
+              - { label: "Identifiant (laisser tel quel)", name: "id", widget: "string", required: false, hint: "Code interne, ex : 001. Laissez vide pour une nouvelle œuvre." }
+              - { label: "Titre", name: "titre", widget: "string" }
+              - label: "Technique"
+                name: "technique"
+                widget: "select"
+                options:
+                  - "Acrylique sur toile"
+                  - "Aquarelle sur Canson"
+                  - "Stylo bille sur Canson"
+                  - "Huile sur toile"
+                  - "Pastel"
+              - { label: "Dimensions", name: "dimensions", widget: "string", hint: "Exemple : 60 x 50 cm" }
+              - { label: "Année", name: "annee", widget: "number", value_type: "int", default: 2025 }
+              - { label: "Prix (€)", name: "prix", widget: "number", value_type: "int", default: 0, hint: "Mettez 0 si l'œuvre n'est pas à vendre." }
+              - { label: "Disponible à la vente", name: "disponible", widget: "boolean", default: true }
+              - { label: "À la une (page d'accueil)", name: "featured", widget: "boolean", default: false }
+              - { label: "En cours de création", name: "en_cours", widget: "boolean", default: false }
+              - label: "Catégorie (pour les filtres de la galerie)"
+                name: "categorie"
+                widget: "select"
+                options:
+                  - "Acrylique"
+                  - "Aquarelle"
+                  - "Dessin"
+                  - "Huile"
+                  - "Pastel"
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Photo de l'œuvre", name: "image", widget: "image", hint: "Téléversez la photo (idéalement 800 x 600 px, < 200 Ko)." }
+
+  # ---------- ATELIERS ----------
+  - name: "agenda"
+    label: "Ateliers (agenda)"
+    label_singular: "atelier"
+    files:
+      - name: "ateliers"
+        label: "Liste des ateliers"
+        file: "data/ateliers.json"
+        description: "Ajoutez ou supprimez les dates d'ateliers proposées."
+        fields:
+          - label: "Ateliers"
+            name: "ateliers"
+            label_singular: "atelier"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.theme}}"
+            fields:
+              - { label: "Identifiant (laisser tel quel)", name: "id", widget: "string", required: false, hint: "Code interne, ex : a001." }
+              - { label: "Date", name: "date", widget: "date", date_format: "YYYY-MM-DD", hint: "Date de l'atelier." }
+              - { label: "Heure", name: "heure", widget: "string", hint: "Exemple : 14:00" }
+              - { label: "Durée", name: "duree", widget: "string", hint: "Exemple : 3h" }
+              - label: "Niveau"
+                name: "niveau"
+                widget: "select"
+                options:
+                  - "Tous niveaux"
+                  - "Débutant"
+                  - "Intermédiaire"
+                  - "Confirmé"
+              - { label: "Thème", name: "theme", widget: "string" }
+              - { label: "Prix (€)", name: "prix", widget: "number", value_type: "int", default: 35 }
+              - { label: "Nombre de places total", name: "places_total", widget: "number", value_type: "int", default: 8 }
+              - { label: "Places restantes", name: "places_restantes", widget: "number", value_type: "int", default: 8 }

@@ -1,0 +1,107 @@
+/* ============================================================
+   responsive.css
+   Rôle : tous les breakpoints du site.
+   Dépendances : style.css, galerie.css, admin.css (chargé en dernier).
+   ============================================================ */
+
+/* ---------- Menu hamburger : actif sous 1025px ---------- */
+@media (max-width: 1024px) {
+  .hamburger { display: flex; }
+
+  /* IMPORTANT : le backdrop-filter (flou) du header crée un "bloc conteneur"
+     qui fait que le menu plein écran (position:fixed) se positionne par rapport
+     au header (tout petit) au lieu de l'écran entier → menu transparent/invisible
+     sur les pages internes. On désactive donc le flou sous 1025px. */
+  .site-header,
+  .site-header.header--solide {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  /* Menu en overlay plein écran (fond opaque pour une lisibilité garantie) */
+  .nav-principale {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--c-fond-sombre); /* opaque */
+    transform: translateX(100%);
+    transition: transform var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050; /* au-dessus du contenu, sous le bouton hamburger (1100) */
+  }
+  .nav-principale.ouvert { transform: translateX(0); }
+  .nav-principale ul {
+    flex-direction: column;
+    gap: var(--espace-md);
+    text-align: center;
+  }
+  .nav-principale a { font-size: 1.5rem; }
+}
+
+/* ============================================================
+   BREAKPOINTS OBLIGATOIRES
+   ============================================================ */
+
+/* Mobile small */
+@media (max-width: 359px) {
+  .conteneur, .conteneur-large { padding-inline: var(--espace-sm); }
+  .btn { width: 100%; }
+  .hero h1 { font-size: 2.2rem; }
+}
+
+/* Mobile */
+@media (min-width: 360px) and (max-width: 480px) {
+  .conteneur, .conteneur-large { padding-inline: var(--espace-sm); }
+}
+
+/* Mobile large */
+@media (min-width: 481px) and (max-width: 767px) {
+  /* rien de spécifique : les règles "max-width:767px" ci-dessous gèrent */
+}
+
+/* ---------- Grilles : 1 colonne en mobile (< 768px) ---------- */
+@media (max-width: 767px) {
+  .grille-toiles,
+  .grille-featured { grid-template-columns: 1fr; }
+
+  .bloc-2col { grid-template-columns: 1fr; gap: var(--espace-md); }
+  .bloc-2col.inverse .bloc-texte { order: 0; }
+
+  .footer-contenu { grid-template-columns: 1fr; text-align: center; gap: var(--espace-md); }
+  .footer-contenu nav { align-items: center; }
+  .footer-bas { flex-direction: column; text-align: center; }
+
+  .admin-grille { grid-template-columns: 1fr; }
+
+  /* Lightbox empilée verticalement */
+  .lightbox-boite { grid-template-columns: 1fr; max-height: 92vh; overflow-y: auto; }
+  .lightbox-image { max-height: 45vh; }
+  .lightbox-image img { max-height: 45vh; }
+  .lightbox-next { right: var(--espace-sm); }
+}
+
+/* ---------- Tablette portrait : 2 colonnes (768–1024px) ---------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .grille-toiles,
+  .grille-featured { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Tablette paysage */
+@media (min-width: 1025px) and (max-width: 1279px) {
+  .grille-toiles,
+  .grille-featured { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Desktop */
+@media (min-width: 1280px) and (max-width: 1919px) {
+  /* mise en page par défaut (3 colonnes, conteneurs max) */
+}
+
+/* Grand écran */
+@media (min-width: 1920px) {
+  :root { --largeur-contenu: 1280px; }
+  body { font-size: 1.15rem; }
+}

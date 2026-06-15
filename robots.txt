@@ -1,0 +1,7 @@
+# robots.txt — Ateliers d'Art
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin.html
+
+Sitemap: https://pascaleabramovici.com/sitemap.xml

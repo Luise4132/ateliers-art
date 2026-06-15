@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!-- atelier.html — Présentation de l'atelier, calendrier des cours et inscription. -->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>L'atelier — Cours de peinture & dessin | Ateliers d'Art</title>
+  <meta name="description" content="Participez aux ateliers de peinture et de dessin de Pascal Abramovici à Paris : aquarelle, acrylique, stylo bille. Tous niveaux. Consultez le calendrier et inscrivez-vous en ligne.">
+  <link rel="canonical" href="https://pascaleabramovici.com/atelier.html">
+
+  <meta property="og:title" content="L'atelier — Cours de peinture | Ateliers d'Art">
+  <meta property="og:description" content="Ateliers de peinture et dessin à Paris, tous niveaux.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pascaleabramovici.com/atelier.html">
+  <meta property="og:image" content="https://pascaleabramovici.com/images/toiles/souvenir-de-la-dune.jpg">
+
+  <link rel="icon" href="images/ui/favicon.ico" sizes="any">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/galerie.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="js/main.js" defer></script>
+  <script src="js/galerie.js" defer></script>
+  <script src="js/contact.js" defer></script>
+  <script src="js/cookies.js" defer></script>
+  <script src="js/modales.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Passer au contenu</a>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">Ateliers&nbsp;<span>d'Art</span></a>
+    <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-principale">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-principale" id="nav-principale" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="galerie.html">Œuvres</a></li>
+        <li><a href="atelier.html">Atelier</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenu">
+    <header class="page-entete">
+      <h1>L'atelier</h1>
+      <p>Un lieu pour apprendre, créer et partager autour de la peinture et du dessin.</p>
+    </header>
+
+    <!-- ===== Description ===== -->
+    <section>
+      <div class="conteneur">
+        <div class="bloc-2col apparition">
+          <div class="bloc-texte">
+            <span class="surtitre">Bienvenue</span>
+            <h2>Peindre ensemble, à son rythme</h2>
+            <p>Les Ateliers d'Art accueillent aussi bien les débutants que les artistes confirmés.
+               Dans un cadre convivial, chacun explore les techniques de la peinture et du dessin :
+               aquarelle, acrylique, travail au stylo bille…</p>
+            <p>Le matériel est fourni pour les initiations, et les groupes restent volontairement
+               réduits afin que chacun bénéficie d'un accompagnement personnalisé.</p>
+            <!-- TODO: Adapter le texte de présentation -->
+            <a class="btn btn-primaire" href="#inscription">S'inscrire à un atelier</a>
+          </div>
+          <div>
+            <!-- TODO: Remplacer par une vraie photo de l'atelier -->
+            <img src="images/toiles/dans-sa-bulle.jpg" alt="L'artiste au travail dans son atelier de peinture" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== En cours de création ===== (masqué si aucune toile en_cours) -->
+    <section class="bloc-en-cours" id="en-cours-bloc">
+      <div class="conteneur">
+        <div class="bloc-2col apparition">
+          <div class="en-cours-image">
+            <img src="" alt="Œuvre en cours de création" loading="lazy">
+          </div>
+          <div class="bloc-texte">
+            <span class="surtitre">Dans l'atelier</span>
+            <h2>En cours de création</h2>
+            <h3 class="en-cours-titre"></h3>
+            <p class="en-cours-desc"></p>
+            <div class="barre-progression"><span style="width:60%"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Calendrier des ateliers ===== -->
+    <section class="section-claire">
+      <div class="conteneur">
+        <div class="titre-section">
+          <span class="surtitre">Agenda</span>
+          <h2>Prochains ateliers</h2>
+        </div>
+        <!-- Rendu par galerie.js depuis ateliers.json -->
+        <div class="grille-featured" id="calendrier-ateliers"></div>
+      </div>
+    </section>
+
+    <!-- ===== Formulaire d'inscription (Netlify Forms) ===== -->
+    <section id="inscription">
+      <div class="conteneur">
+        <div class="titre-section">
+          <span class="surtitre">Réservation</span>
+          <h2>S'inscrire à un atelier</h2>
+        </div>
+        <p class="intro-texte">Remplissez ce formulaire, je vous recontacte pour confirmer votre place.</p>
+
+        <!-- Netlify Forms : data-netlify + champ caché form-name. Validation via contact.js. -->
+        <form name="inscription-atelier" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+              class="formulaire form-netlify">
+          <input type="hidden" name="form-name" value="inscription-atelier">
+          <!-- Champ anti-spam (honeypot), caché aux humains -->
+          <p hidden><label>Ne pas remplir : <input name="bot-field"></label></p>
+
+          <div class="champ">
+            <label for="i-nom">Nom et prénom *</label>
+            <input type="text" id="i-nom" name="nom" required autocomplete="name">
+            <span class="erreur">Merci d'indiquer votre nom.</span>
+          </div>
+          <div class="champ">
+            <label for="i-email">Email *</label>
+            <input type="email" id="i-email" name="email" required autocomplete="email">
+            <span class="erreur">Merci d'indiquer un email valide.</span>
+          </div>
+          <div class="champ">
+            <label for="i-tel">Téléphone *</label>
+            <input type="tel" id="i-tel" name="telephone" required autocomplete="tel">
+            <span class="erreur">Merci d'indiquer votre téléphone.</span>
+          </div>
+          <div class="champ">
+            <label for="select-atelier-date">Atelier souhaité *</label>
+            <select id="select-atelier-date" name="atelier" required>
+              <option value="">— Choisir une date —</option>
+              <!-- Options ajoutées par galerie.js depuis ateliers.json -->
+            </select>
+            <span class="erreur">Merci de choisir un atelier.</span>
+          </div>
+          <div class="champ">
+            <label for="i-message">Message (facultatif)</label>
+            <textarea id="i-message" name="message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primaire">Envoyer ma demande</button>
+        </form>
+        <div class="message-confirmation">Merci ! Votre demande d'inscription a bien été envoyée. Je vous recontacte très vite.</div>
+      </div>
+    </section>
+
+    <!-- ===== Témoignages ===== -->
+    <section class="section-claire">
+      <div class="conteneur">
+        <div class="titre-section">
+          <span class="surtitre">Ils ont participé</span>
+          <h2>Témoignages</h2>
+        </div>
+        <!-- TODO: Remplacer par de vrais témoignages d'élèves -->
+        <div class="grille-featured">
+          <blockquote class="carte-atelier apparition">
+            <p>« Une parenthèse hors du temps. Marie transmet sa passion avec une patience incroyable. »</p>
+            <footer class="carte-meta">— Sophie, mars 2026</footer>
+          </blockquote>
+          <blockquote class="carte-atelier apparition">
+            <p>« Je suis repartie avec ma première aquarelle et une vraie envie de continuer ! »</p>
+            <footer class="carte-meta">— Karim, février 2026</footer>
+          </blockquote>
+          <blockquote class="carte-atelier apparition">
+            <p>« Ambiance chaleureuse, petit groupe, conseils sur mesure. Je recommande les yeux fermés. »</p>
+            <footer class="carte-meta">— Élise, janvier 2026</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Galerie photos de l'atelier ===== -->
+    <section>
+      <div class="conteneur-large">
+        <div class="titre-section">
+          <span class="surtitre">Le lieu</span>
+          <h2>L'atelier en images</h2>
+        </div>
+        <!-- TODO: Remplacer par de vraies photos du lieu (images/atelier/) -->
+        <div class="grille-toiles">
+          <div class="carte-galerie"><div class="carte-image"><img src="images/toiles/hommage-david-hockney.jpg" alt="Vue de l'atelier — coin peinture" loading="lazy"></div></div>
+          <div class="carte-galerie"><div class="carte-image"><img src="images/toiles/embrasse-moi.jpg" alt="Vue de l'atelier — œuvres en cours" loading="lazy"></div></div>
+          <div class="carte-galerie"><div class="carte-image"><img src="images/toiles/outils-de-travail.jpg" alt="Vue de l'atelier — outils de travail" loading="lazy"></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-contenu">
+      <div>
+        <p class="footer-nom">Ateliers d'Art</p>
+        <p>45 Rue de la Poste, 36000 Châteauroux</p>
+        <p>06 77 69 73 63</p>
+      </div>
+      <nav aria-label="Navigation pied de page">
+        <h4>Navigation</h4>
+        <a href="index.html">Accueil</a>
+        <a href="galerie.html">Œuvres</a>
+        <a href="atelier.html">Atelier</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div>
+        <h4>Suivez-moi</h4>
+        <a href="https://www.instagram.com/abramo_peintures?igsh=MXZ4Y2VhZnNnN2l3cw==" target="_blank" rel="noopener">Instagram</a><br>
+        <a href="https://www.facebook.com/share/1cfA1jjfPq/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bas">
+      <p>© <span class="annee-courante">2025</span> Pascal Abramovici. Tous droits réservés.</p>
+      <div class="footer-liens-legaux">
+        <button onclick="ouvrirModale('mentions-legales')">Mentions légales</button>
+        <button onclick="ouvrirModale('confidentialite')">Politique de confidentialité</button>
+        <button onclick="ouvrirModale('cookies')">Gérer mes cookies</button>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

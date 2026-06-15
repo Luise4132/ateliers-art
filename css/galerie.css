@@ -1,0 +1,184 @@
+/* ============================================================
+   galerie.css
+   Rôle : grille des toiles, barre de filtres, modale lightbox.
+   Dépendances : style.css (variables). Utilisé par galerie.html + galerie.js.
+   ============================================================ */
+
+/* ---------- Barre de filtres ---------- */
+.filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espace-md);
+  justify-content: center;
+  margin-bottom: var(--espace-lg);
+}
+.groupe-filtre { display: flex; flex-direction: column; gap: var(--espace-xs); align-items: center; }
+.groupe-filtre .libelle-filtre {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: var(--fs-petit);
+  color: var(--c-texte-secondaire);
+}
+.groupe-filtre .boutons-filtre { display: flex; flex-wrap: wrap; gap: var(--espace-xs); justify-content: center; }
+.btn-filtre {
+  min-height: 44px;
+  padding: 0.5rem 1.1rem;
+  background: var(--c-fond-clair);
+  border: 1px solid var(--c-bordure);
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: var(--font-corps);
+  font-size: var(--fs-petit);
+  color: var(--c-texte);
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+.btn-filtre:hover { border-color: var(--c-primaire); color: var(--c-primaire); }
+.btn-filtre.actif { background: var(--c-primaire); color: #fff; border-color: var(--c-primaire); }
+
+/* ---------- Grille des toiles ---------- */
+.grille-toiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* desktop : 3 colonnes */
+  gap: var(--espace-md);
+}
+
+.carte-galerie {
+  position: relative;
+  background: var(--c-fond-clair);
+  border-radius: var(--rayon-md);
+  overflow: hidden;
+  box-shadow: var(--ombre);
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.carte-galerie:hover, .carte-galerie:focus-visible { transform: translateY(-6px); box-shadow: var(--ombre-hover); }
+.carte-galerie .carte-image { aspect-ratio: 4 / 3; overflow: hidden; background: var(--c-bordure); }
+.carte-galerie .carte-image img { width: 100%; height: 100%; transition: transform 0.5s ease; }
+.carte-galerie:hover .carte-image img { transform: scale(1.05); }
+
+.carte-galerie .carte-corps { padding: var(--espace-sm); display: flex; flex-direction: column; gap: 0.3rem; flex: 1; }
+.carte-galerie h3 { font-size: var(--fs-h3); }
+.carte-galerie .carte-meta { font-size: var(--fs-petit); color: var(--c-texte-secondaire); }
+.carte-galerie .carte-bas { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: var(--espace-xs); }
+.carte-galerie .carte-prix { font-weight: 700; color: var(--c-primaire); font-size: 1.1rem; }
+
+/* Badge disponibilité (coin de la carte) */
+.badge-dispo {
+  position: absolute;
+  top: var(--espace-sm); left: var(--espace-sm);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+.badge-dispo.dispo { background: var(--c-whatsapp); }
+.badge-dispo.vendue { background: var(--c-texte-secondaire); }
+
+/* Message quand aucun résultat */
+.aucun-resultat { text-align: center; color: var(--c-texte-secondaire); padding: var(--espace-lg); grid-column: 1 / -1; }
+
+/* ============================================================
+   MODALE LIGHTBOX
+   ============================================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1900;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--espace-md);
+  background: rgba(20,18,16,0.88);
+}
+.lightbox.ouverte { display: flex; }
+
+.lightbox-boite {
+  position: relative;
+  background: var(--c-fond);
+  border-radius: var(--rayon-lg);
+  max-width: 1000px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  box-shadow: var(--ombre-hover);
+}
+.lightbox-image {
+  background: #14120f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 90vh;
+}
+.lightbox-image img { width: 100%; height: 100%; max-height: 90vh; object-fit: contain; }
+
+.lightbox-infos {
+  padding: var(--espace-lg) var(--espace-md);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-sm);
+}
+.lightbox-infos h2 { color: var(--c-primaire); }
+.lightbox-infos .lb-meta { color: var(--c-texte-secondaire); font-size: var(--fs-petit); }
+.lightbox-infos .lb-prix { font-size: 1.5rem; font-weight: 700; color: var(--c-primaire); }
+.lightbox-infos .lb-description { color: var(--c-texte); }
+.lightbox-infos .lb-actions { margin-top: auto; padding-top: var(--espace-sm); }
+.lb-badge {
+  align-self: flex-start;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+}
+.lb-badge.dispo { background: var(--c-whatsapp); }
+.lb-badge.vendue { background: var(--c-texte-secondaire); }
+
+/* Bouton fermeture */
+.lightbox-fermer {
+  position: absolute;
+  top: var(--espace-sm); right: var(--espace-sm);
+  width: 44px; height: 44px;
+  border: none;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 3;
+  color: var(--c-texte);
+  display: flex; align-items: center; justify-content: center;
+}
+.lightbox-fermer:hover { background: #fff; }
+
+/* Flèches navigation */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px; height: 48px;
+  border: none;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 3;
+  color: var(--c-texte);
+  display: flex; align-items: center; justify-content: center;
+}
+.lightbox-nav:hover { background: #fff; }
+.lightbox-prev { left: var(--espace-sm); }
+.lightbox-next { right: var(--espace-sm); }
+
+/* Sur l'image (colonne gauche), garder les flèches lisibles */
+@media (min-width: 768px) {
+  .lightbox-prev { left: var(--espace-sm); }
+  .lightbox-next { right: calc(40% + var(--espace-sm)); }
+}

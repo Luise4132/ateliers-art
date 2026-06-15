@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!-- index.html — Page d'accueil de l'Ateliers d'Art (galerie + atelier de peinture). -->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <title>Ateliers d'Art — Galerie de peinture & cours de dessin à Paris</title>
+  <meta name="description" content="Ateliers d'Art : galerie de toiles originales (acrylique, aquarelle, dessin) et cours de peinture à Paris. Découvrez les œuvres de Pascal Abramovici et inscrivez-vous aux ateliers.">
+  <!-- TODO: Remplacer par le vrai nom de domaine -->
+  <link rel="canonical" href="https://pascaleabramovici.com/index.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ateliers d'Art — Galerie de peinture & ateliers">
+  <meta property="og:description" content="Toiles originales à vendre et cours de peinture à Paris.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pascaleabramovici.com/index.html">
+  <meta property="og:image" content="https://pascaleabramovici.com/images/toiles/souvenir-de-la-dune.jpg">
+
+  <!-- Favicon — TODO: ajouter un vrai favicon dans images/ui/ -->
+  <link rel="icon" href="images/ui/favicon.ico" sizes="any">
+
+  <!-- Polices Google (preconnect + display=swap pour la performance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS critique inliné pour le hero (évite le render-blocking au-dessus de la ligne de flottaison) -->
+  <style>
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:linear-gradient(rgba(28,28,26,.45),rgba(28,28,26,.55)),url("images/toiles/souvenir-de-la-dune.jpg") center/cover no-repeat;}
+    .hero h1{font-family:'Playfair Display',Georgia,serif;color:#fff;}
+  </style>
+
+  <!-- Feuilles de style -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/galerie.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Scripts (defer : non bloquants) -->
+  <script src="js/main.js" defer></script>
+  <script src="js/galerie.js" defer></script>
+  <script src="js/cookies.js" defer></script>
+  <script src="js/modales.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Passer au contenu</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <a class="logo" href="index.html">Ateliers&nbsp;<span>d'Art</span></a>
+    <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-principale">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-principale" id="nav-principale" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="galerie.html">Œuvres</a></li>
+        <li><a href="atelier.html">Atelier</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenu">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-contenu">
+        <h1>Pascal Abramovici</h1>
+        <p class="accroche">Là où la lumière devient couleur.</p>
+        <!-- TODO: Personnaliser l'accroche poétique de l'artiste -->
+        <a class="btn btn-clair" href="galerie.html">Découvrir les œuvres</a>
+      </div>
+    </section>
+
+    <!-- ============ À LA UNE ============ -->
+    <section>
+      <div class="conteneur">
+        <div class="titre-section">
+          <span class="surtitre">Sélection</span>
+          <h2>À la une</h2>
+        </div>
+        <p class="intro-texte">Quelques toiles récentes, disponibles à l'achat directement auprès de l'artiste.</p>
+        <!-- Rempli dynamiquement par galerie.js depuis toiles.json (featured: true) -->
+        <div class="grille-featured" id="featured-grille"></div>
+        <div class="text-center mt-md">
+          <a class="btn btn-secondaire" href="galerie.html">Voir toutes les œuvres</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ L'ATELIER EN QUELQUES MOTS ============ -->
+    <section class="section-claire">
+      <div class="conteneur">
+        <div class="bloc-2col apparition">
+          <div class="bloc-texte">
+            <span class="surtitre">Le lieu</span>
+            <h2>L'atelier en quelques mots</h2>
+            <p>Un espace lumineux et chaleureux ouvert aux artistes en herbe comme aux peintres confirmés.
+               On y vient pour apprendre, expérimenter et partager autour du dessin et de la peinture,
+               dans une ambiance bienveillante.</p>
+            <!-- TODO: Adapter le texte de présentation de l'atelier -->
+            <a class="btn btn-primaire" href="atelier.html">Découvrir l'atelier</a>
+          </div>
+          <div>
+            <!-- TODO: Remplacer par une vraie photo de l'atelier -->
+            <img src="images/toiles/hommage-david-hockney.jpg" alt="Ambiance colorée de l'atelier de peinture" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCHAIN ATELIER ============ -->
+    <section>
+      <div class="conteneur">
+        <div class="titre-section">
+          <span class="surtitre">Agenda</span>
+          <h2>Prochain atelier</h2>
+        </div>
+        <!-- Rempli dynamiquement par galerie.js depuis ateliers.json -->
+        <div id="prochain-atelier"></div>
+      </div>
+    </section>
+
+    <!-- ============ EN COURS DE CRÉATION ============ -->
+    <!-- Masqué automatiquement par galerie.js si aucune toile n'a en_cours: true -->
+    <section class="bloc-en-cours" id="en-cours-bloc">
+      <div class="conteneur">
+        <div class="bloc-2col apparition">
+          <div class="en-cours-image">
+            <img src="" alt="Œuvre en cours de création" loading="lazy">
+          </div>
+          <div class="bloc-texte">
+            <span class="surtitre">Dans l'atelier</span>
+            <h2>En cours de création</h2>
+            <h3 class="en-cours-titre"></h3>
+            <p class="en-cours-desc"></p>
+            <div class="barre-progression"><span style="width:60%"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="footer-contenu">
+      <div>
+        <p class="footer-nom">Ateliers d'Art</p>
+        <!-- TODO: Adresse / téléphone réels -->
+        <p>45 Rue de la Poste, 36000 Châteauroux</p>
+        <p>06 77 69 73 63</p>
+      </div>
+      <nav aria-label="Navigation pied de page">
+        <h4>Navigation</h4>
+        <a href="index.html">Accueil</a>
+        <a href="galerie.html">Œuvres</a>
+        <a href="atelier.html">Atelier</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div>
+        <h4>Suivez-moi</h4>
+        <!-- TODO: vrais liens réseaux sociaux -->
+        <a href="https://www.instagram.com/abramo_peintures?igsh=MXZ4Y2VhZnNnN2l3cw==" target="_blank" rel="noopener">Instagram</a><br>
+        <a href="https://www.facebook.com/share/1cfA1jjfPq/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bas">
+      <p>© <span class="annee-courante">2025</span> Pascal Abramovici. Tous droits réservés.</p>
+      <div class="footer-liens-legaux">
+        <button onclick="ouvrirModale('mentions-legales')">Mentions légales</button>
+        <button onclick="ouvrirModale('confidentialite')">Politique de confidentialité</button>
+        <button onclick="ouvrirModale('cookies')">Gérer mes cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ LIGHTBOX (galerie) ============ -->
+  <!-- Présente sur l'accueil pour permettre l'ouverture depuis les cartes featured si besoin -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Détail de l'œuvre">
+    <div class="lightbox-boite">
+      <button class="lightbox-fermer" aria-label="Fermer">&times;</button>
+      <button class="lightbox-nav lightbox-prev" aria-label="Œuvre précédente">&#8249;</button>
+      <button class="lightbox-nav lightbox-next" aria-label="Œuvre suivante">&#8250;</button>
+      <div class="lightbox-image"><img src="" alt=""></div>
+      <div class="lightbox-infos">
+        <span class="lb-badge dispo">Disponible</span>
+        <h2 class="lb-titre"></h2>
+        <p class="lb-meta"></p>
+        <p class="lb-prix"></p>
+        <p class="lb-description"></p>
+        <div class="lb-actions"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Widget d'identification Netlify : permet de gérer la connexion à l'espace
+       d'administration (/admin/) et de rediriger automatiquement après acceptation
+       de l'invitation. -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function (user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function () {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

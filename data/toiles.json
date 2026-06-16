@@ -278,6 +278,19 @@
       "categorie": "Acrylique",
       "image": "images/toiles/img_0641.jpeg",
       "description": "Peinture acrylique sur toile "
+    },
+    {
+      "annee": 2026,
+      "dimensions": "100x100",
+      "featured": false,
+      "technique": "Acrylique sur toile",
+      "prix": 720,
+      "titre": "Mirza",
+      "disponible": true,
+      "en_cours": false,
+      "categorie": "Acrylique",
+      "image": "images/toiles/img_1080.jpeg",
+      "description": "Peinture acrylique sur toile"
     }
   ]
 }

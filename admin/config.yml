@@ -51,7 +51,7 @@ collections:
                   - "Stylo bille sur Canson"
                   - "Huile sur toile"
                   - "Pastel"
-              - { label: "Dimensions", name: "dimensions", widget: "string", hint: "Exemple : 60 x 50 cm" }
+              - { label: "Dimensions", name: "dimensions", widget: "string", hint: "Exemple : 60 x 50" }
               - { label: "Année", name: "annee", widget: "number", value_type: "int", default: 2025 }
               - { label: "Prix (€)", name: "prix", widget: "number", value_type: "int", default: 0, hint: "Mettez 0 si l'œuvre n'est pas à vendre." }
               - { label: "Disponible à la vente", name: "disponible", widget: "boolean", default: true }

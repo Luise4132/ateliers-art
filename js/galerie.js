@@ -159,14 +159,13 @@
           return (
             '<article class="carte-galerie apparition" tabindex="0" role="button" ' +
             'aria-label="Voir le détail de ' + echapper(t.titre) + '" data-index="' + index + '">' +
-            '<span class="badge-dispo ' + (t.disponible ? "dispo" : "vendue") + '">' +
-            (t.disponible ? "Disponible" : "Vendue") + "</span>" +
             '<div class="carte-image"><img src="' + echapper(t.image) + '" alt="' +
             echapper(t.titre + " — " + t.technique) + '" loading="lazy"></div>' +
             '<div class="carte-corps">' +
             "<h3>" + echapper(t.titre) + "</h3>" +
             '<p class="carte-meta">' + echapper(t.technique) + " · " + echapper(t.dimensions) + "</p>" +
             '<div class="carte-bas"><span class="carte-prix">' + echapper(formatPrix(t)) + "</span></div>" +
+            '<div class="carte-achat">' + blocAchat(t) + "</div>" +
             "</div></article>"
           );
         })
@@ -181,6 +180,9 @@
         carte.addEventListener("keydown", function (e) {
           if (e.key === "Enter" || e.key === " ") { e.preventDefault(); ouvrirLightbox(+carte.dataset.index); }
         });
+        // Le clic sur le bouton "Acheter" ne doit pas ouvrir la fenêtre de détail
+        var lienAchat = carte.querySelector(".carte-achat a");
+        if (lienAchat) lienAchat.addEventListener("click", function (e) { e.stopPropagation(); });
       });
     }
 

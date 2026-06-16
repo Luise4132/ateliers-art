@@ -20,8 +20,8 @@
       titre: "Mentions légales",
       html:
         "<h3>Éditeur du site</h3>" +
-        "<p><!-- TODO: Nom complet de l'artiste -->Pascal Abramovici<br>" +
-        "<!-- TODO: Adresse de l'atelier -->45 Rue de la Poste, 36000 Châteauroux<br>" +
+        "<p><!-- TODO: Nom complet de l'artiste -->Pascale Abramovici<br>" +
+        "<!-- TODO: Adresse de l'atelier -->27 rue André Lescaroux, 36000 Châteauroux<br>" +
         "<!-- TODO: Téléphone -->06 77 69 73 63<br>" +
         "</p>" +
         "<h3>Hébergeur</h3>" +
@@ -29,11 +29,11 @@
         '<a href="https://www.netlify.com" target="_blank" rel="noopener">https://www.netlify.com</a></p>' +
         "<h3>Propriété intellectuelle</h3>" +
         "<p>L'ensemble des œuvres présentées sur ce site est la propriété exclusive de " +
-        "<!-- TODO: Nom artiste -->Pascal Abramovici. Toute reproduction, même partielle, est interdite " +
+        "<!-- TODO: Nom artiste -->Pascale Abramovici. Toute reproduction, même partielle, est interdite " +
         "sans autorisation écrite préalable.</p>" +
         "<h3>Crédits photos</h3>" +
         "<p>Toutes les photographies des œuvres sont réalisées par " +
-        "<!-- TODO: Nom artiste / photographe -->Pascal Abramovici.</p>" +
+        "<!-- TODO: Nom artiste / photographe -->Pascale Abramovici.</p>" +
         "<h3>Création du site</h3>" +
         "<p><!-- TODO: Ton nom / studio si tu veux apparaître -->Site réalisé sur mesure.</p>",
     },
@@ -45,7 +45,7 @@
         "<p>– Nom et prénom<br>– Adresse email<br>– Numéro de téléphone (formulaire atelier uniquement)<br>– Message</p>" +
         "<p>Ces données sont collectées uniquement pour répondre à vos demandes ou gérer vos inscriptions aux ateliers.</p>" +
         "<h3>Responsable du traitement</h3>" +
-        "<p><!-- TODO: Nom artiste -->Pascal Abramovici</p>" +
+        "<p><!-- TODO: Nom artiste -->Pascale Abramovici</p>" +
         "<h3>Durée de conservation</h3>" +
         "<p>Vos données sont conservées 3 ans à compter de votre dernier contact.</p>" +
         "<h3>Vos droits</h3>" +

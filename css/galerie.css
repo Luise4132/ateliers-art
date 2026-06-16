@@ -54,15 +54,20 @@
   flex-direction: column;
 }
 .carte-galerie:hover, .carte-galerie:focus-visible { transform: translateY(-6px); box-shadow: var(--ombre-hover); }
-.carte-galerie .carte-image { aspect-ratio: 4 / 3; overflow: hidden; background: var(--c-bordure); }
-.carte-galerie .carte-image img { width: 100%; height: 100%; transition: transform 0.5s ease; }
-.carte-galerie:hover .carte-image img { transform: scale(1.05); }
+/* Image affichée EN ENTIER (hauteur naturelle, pas de recadrage) */
+.carte-galerie .carte-image { overflow: hidden; background: var(--c-fond-clair); }
+.carte-galerie .carte-image img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
+.carte-galerie:hover .carte-image img { transform: scale(1.04); }
 
 .carte-galerie .carte-corps { padding: var(--espace-sm); display: flex; flex-direction: column; gap: 0.3rem; flex: 1; }
 .carte-galerie h3 { font-size: var(--fs-h3); }
 .carte-galerie .carte-meta { font-size: var(--fs-petit); color: var(--c-texte-secondaire); }
 .carte-galerie .carte-bas { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: var(--espace-xs); }
 .carte-galerie .carte-prix { font-weight: 700; color: var(--c-primaire); font-size: 1.1rem; }
+/* Bouton d'achat sous la photo (dans le corps de la carte) */
+.carte-galerie .carte-achat { margin-top: var(--espace-sm); }
+.carte-galerie .carte-achat .btn-whatsapp { width: 100%; }
+.carte-galerie .carte-achat .badge-vendue { width: 100%; justify-content: center; }
 
 /* Badge disponibilité (coin de la carte) */
 .badge-dispo {

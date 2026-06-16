@@ -335,8 +335,8 @@ section { padding-block: var(--espace-lg); }
   flex-direction: column;
 }
 .carte-toile:hover { transform: translateY(-6px); box-shadow: var(--ombre-hover); }
-.carte-toile .carte-image { aspect-ratio: 4 / 3; overflow: hidden; }
-.carte-toile .carte-image img { width: 100%; height: 100%; transition: transform 0.5s ease; }
+.carte-toile .carte-image { overflow: hidden; background: var(--c-fond-clair); }
+.carte-toile .carte-image img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
 .carte-toile:hover .carte-image img { transform: scale(1.05); }
 .carte-toile .carte-corps { padding: var(--espace-sm); display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
 .carte-toile h3 { font-size: var(--fs-h3); }

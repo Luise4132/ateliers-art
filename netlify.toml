@@ -1,23 +1,10 @@
 # netlify.toml — Configuration de déploiement Netlify (site statique).
-# Redirections + en-têtes de cache. Aucun build : tout est servi tel quel.
+# En-têtes de cache uniquement. Aucun build : tout est servi tel quel.
+#
+# L'espace d'administration (CMS Decap) est le dossier /admin/.
+# L'ancienne page admin.html a été supprimée : plus aucun conflit, /admin
+# affiche directement le CMS (pas de redirection nécessaire).
 
-# ===== Espace d'administration =====
-# Le nouveau CMS (Decap) est dans le dossier /admin/.
-# On force /admin ET l'ancienne /admin.html à pointer vers le CMS, pour éviter
-# que l'ancienne page (champ mot de passe) ne s'affiche encore.
-[[redirects]]
-  from = "/admin"
-  to = "/admin/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/admin.html"
-  to = "/admin/"
-  status = 301
-  force = true
-
-# ===== En-têtes de cache =====
 # Le HTML ne doit jamais être mis en cache (contenu mis à jour fréquemment)
 [[headers]]
   for = "/*.html"

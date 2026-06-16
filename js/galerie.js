@@ -19,7 +19,7 @@
      ⚠️ TODO IMPORTANT : remplacer par le vrai numéro WhatsApp de l'artiste.
      Format international SANS "+" ni espaces. Ex. France : 33612345678
      ============================================================ */
-  const NUMERO_WHATSAPP = "33631744897";
+  const NUMERO_WHATSAPP = "33677697363";
 
   /* ---------- Helpers ---------- */
 

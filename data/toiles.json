@@ -119,12 +119,12 @@
       "technique": "Acrylique sur toile",
       "prix": 750,
       "titre": "Lucien",
-      "disponible": true,
+      "disponible": false,
       "en_cours": false,
       "categorie": "Acrylique",
       "id": "009",
       "image": "images/toiles/lucien.jpg",
-      "description": "Portrait expressif à l'acrylique, regard franc et palette chaleureuse."
+      "description": "Portrait expressif à l'acrylique"
     },
     {
       "annee": 2024,

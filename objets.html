@@ -1,25 +1,38 @@
 <!DOCTYPE html>
-<!-- mentions-legales.html — Version page autonome des mentions légales
-     (les mêmes informations sont aussi accessibles en modale depuis le footer). -->
+<!-- objets.html — Objets d'Art (produits dérivés : vêtements, objets imprimés…). -->
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mentions légales | Ateliers d'Art</title>
-  <meta name="description" content="Mentions légales du site de l'Ateliers d'Art : éditeur, hébergeur, propriété intellectuelle et crédits.">
-  <link rel="canonical" href="https://pascaleabramovici.com/mentions-legales.html">
+
+  <title>Objets d'Art — Produits dérivés de Pascale Abramovici, Châteauroux</title>
+  <meta name="description" content="Objets d'art et produits dérivés de Pascale Abramovici : vêtements et objets imprimés avec ses peintures. Achat direct via WhatsApp, à Châteauroux.">
+  <link rel="canonical" href="https://pascaleabramovici.com/objets.html">
+
+  <meta property="og:title" content="Objets d'Art — Produits dérivés Pascale Abramovici">
+  <meta property="og:description" content="Vêtements et objets imprimés avec les peintures de Pascale Abramovici.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pascaleabramovici.com/objets.html">
+  <meta property="og:image" content="https://pascaleabramovici.com/images/toiles/princesse-flore.jpg">
+
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/galerie.css">
   <link rel="stylesheet" href="css/responsive.css">
+
   <script src="js/main.js" defer></script>
+  <script src="js/galerie.js" defer></script>
   <script src="js/cookies.js" defer></script>
   <script src="js/modales.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Passer au contenu</a>
+
   <header class="site-header">
     <a class="logo" href="index.html">Ateliers&nbsp;<span>d'Art</span></a>
     <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-principale">
@@ -38,22 +51,15 @@
   </header>
 
   <main id="contenu">
-    <header class="page-entete"><h1>Mentions légales</h1></header>
+    <header class="page-entete">
+      <h1>Objets d'Art</h1>
+      <p>Vêtements et objets imprimés avec mes peintures — l'art à porter et à vivre au quotidien.</p>
+    </header>
+
     <section>
-      <div class="conteneur">
-        <h2>Éditeur du site</h2>
-        <!-- TODO: vraies informations -->
-        <p>Pascale Abramovici<br>27 rue André Lescaroux, 36000 Châteauroux<br>06 77 69 73 63</p>
-        <h2>Hébergeur</h2>
-        <p>Netlify, Inc.<br>512 2nd Street, Suite 200<br>San Francisco, CA 94107, USA<br>
-          <a href="https://www.netlify.com" target="_blank" rel="noopener">https://www.netlify.com</a></p>
-        <h2>Propriété intellectuelle</h2>
-        <p>L'ensemble des œuvres présentées sur ce site est la propriété exclusive de Pascale Abramovici.
-           Toute reproduction, même partielle, est interdite sans autorisation écrite préalable.</p>
-        <h2>Crédits photos</h2>
-        <p>Toutes les photographies des œuvres sont réalisées par Pascale Abramovici.</p>
-        <h2>Création du site</h2>
-        <p>Site réalisé sur mesure.</p>
+      <div class="conteneur-large">
+        <!-- Grille des objets, rendue par galerie.js depuis data/objets.json -->
+        <div class="grille-toiles" id="grille-objets"></div>
       </div>
     </section>
   </main>

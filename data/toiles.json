@@ -147,12 +147,12 @@
       "technique": "Acrylique sur toile",
       "prix": 330,
       "titre": "Mademoiselle d'Orléans",
-      "disponible": true,
+      "disponible": false,
       "en_cours": false,
       "categorie": "Acrylique",
       "id": "011",
       "image": "images/toiles/mademoiselle-d-orleans.jpg",
-      "description": "Portrait raffiné aux allures d'antan, tout en élégance et retenue."
+      "description": "Portrait raffiné aux allures d'antan."
     },
     {
       "annee": 2024,

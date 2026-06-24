@@ -51,6 +51,27 @@
     return '<span class="badge-vendue">Vendue</span>';
   }
 
+  // Lien WhatsApp pré-rempli pour un objet d'art (produit dérivé).
+  function construireLienWhatsAppObjet(o) {
+    const message =
+      'Bonjour, je suis intéressé(e) par l\'objet "' + o.titre + '"' +
+      (o.taille ? " (" + o.taille + ")" : "") +
+      " au prix de " + o.prix + " €. Pouvez-vous me donner plus d'informations ?";
+    return "https://wa.me/" + NUMERO_WHATSAPP + "?text=" + encodeURIComponent(message);
+  }
+
+  // Bloc d'achat d'un objet : bouton WhatsApp si dispo, sinon badge "Vendu".
+  function blocAchatObjet(o) {
+    if (o.disponible) {
+      return (
+        '<a class="btn btn-whatsapp" href="' + construireLienWhatsAppObjet(o) +
+        '" target="_blank" rel="noopener" aria-label="Acheter ' + o.titre + ' via WhatsApp">' +
+        SVG_WHATSAPP + "Acheter via WhatsApp</a>"
+      );
+    }
+    return '<span class="badge-vendue">Vendu</span>';
+  }
+
   // Échappe le texte injecté en HTML (sécurité minimale).
   function echapper(txt) {
     const d = document.createElement("div");
@@ -87,6 +108,43 @@
       initSelectAteliers(ateliers);
     })
     .catch(function (e) { console.error("Erreur chargement ateliers :", e); });
+
+  // Objets d'art (produits dérivés) — chargé uniquement si la page les affiche.
+  if (document.getElementById("grille-objets")) {
+    fetch("data/objets.json")
+      .then(function (r) { return r.ok ? r.json() : { objets: [] }; })
+      .then(function (data) { initObjets((data && data.objets) || []); })
+      .catch(function (e) { console.error("Erreur chargement objets :", e); });
+  }
+
+  /* ============================================================
+     0) OBJETS D'ART (objets.html)
+     ============================================================ */
+  function initObjets(objets) {
+    const grille = document.getElementById("grille-objets");
+    if (!grille) return;
+    if (!objets.length) {
+      grille.innerHTML = '<p class="aucun-resultat">De nouveaux objets d\'art (vêtements, objets imprimés…) seront bientôt disponibles. Revenez prochainement !</p>';
+      return;
+    }
+    grille.innerHTML = objets
+      .map(function (o) {
+        const meta = [o.type, o.taille].filter(Boolean).map(echapper).join(" · ");
+        return (
+          '<article class="carte-galerie apparition">' +
+          '<div class="carte-image"><img src="' + echapper(o.image) + '" alt="' + echapper(o.titre) + '" loading="lazy"></div>' +
+          '<div class="carte-corps">' +
+          "<h3>" + echapper(o.titre) + "</h3>" +
+          (meta ? '<p class="carte-meta">' + meta + "</p>" : "") +
+          (o.description ? '<p class="carte-meta">' + echapper(o.description) + "</p>" : "") +
+          '<div class="carte-bas"><span class="carte-prix">' + (o.prix ? echapper(o.prix + " €") : "Sur demande") + "</span></div>" +
+          '<div class="carte-achat">' + blocAchatObjet(o) + "</div>" +
+          "</div></article>"
+        );
+      })
+      .join("");
+    observerCartes(grille);
+  }
 
   /* ============================================================
      1) GALERIE COMPLÈTE (galerie.html)

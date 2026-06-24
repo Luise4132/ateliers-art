@@ -49,6 +49,8 @@ collections:
                   - "Acrylique sur toile"
                   - "Aquarelle sur Canson"
                   - "Stylo bille sur Canson"
+                  - "Pierre noire sur papier"
+                  - "Sculpture sur terre"
                   - "Huile sur toile"
                   - "Pastel"
               - { label: "Dimensions", name: "dimensions", widget: "string", hint: "Exemple : 60 x 50" }
@@ -64,8 +66,9 @@ collections:
                   - "Acrylique"
                   - "Aquarelle"
                   - "Dessin"
-                  - "Huile"
                   - "Pastel"
+                  - "Sculpture"
+                  - "Huile"
               - { label: "Description", name: "description", widget: "text" }
               - { label: "Photo de l'œuvre", name: "image", widget: "image", hint: "Téléversez la photo (idéalement 800 x 600 px, < 200 Ko)." }
 
@@ -101,3 +104,36 @@ collections:
               - { label: "Prix (€)", name: "prix", widget: "number", value_type: "int", default: 35 }
               - { label: "Nombre de places total", name: "places_total", widget: "number", value_type: "int", default: 8 }
               - { label: "Places restantes", name: "places_restantes", widget: "number", value_type: "int", default: 8 }
+
+  # ---------- OBJETS D'ART (produits dérivés) ----------
+  - name: "objets"
+    label: "Objets d'Art (produits dérivés)"
+    label_singular: "objet"
+    files:
+      - name: "objets"
+        label: "Liste des objets d'art"
+        file: "data/objets.json"
+        description: "Ajoutez vos produits dérivés (vêtements, objets imprimés…) avec photo, taille, prix et description. Un bouton « Acheter via WhatsApp » apparaît automatiquement sur le site."
+        fields:
+          - label: "Objets d'art"
+            name: "objets"
+            label_singular: "objet"
+            widget: "list"
+            summary: "{{fields.titre}} — {{fields.prix}} €"
+            fields:
+              - { label: "Identifiant (laisser tel quel)", name: "id", widget: "string", required: false, hint: "Code interne, ex : o001. Laissez vide pour un nouveau produit." }
+              - { label: "Titre", name: "titre", widget: "string" }
+              - label: "Type de produit"
+                name: "type"
+                widget: "select"
+                required: false
+                options:
+                  - "Vêtement"
+                  - "Objet imprimé"
+                  - "Accessoire"
+                  - "Autre"
+              - { label: "Taille", name: "taille", widget: "string", required: false, hint: "Exemple : M, ou 30 x 40 cm." }
+              - { label: "Prix (€)", name: "prix", widget: "number", value_type: "int", default: 0 }
+              - { label: "Disponible à la vente", name: "disponible", widget: "boolean", default: true }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "Photo du produit", name: "image", widget: "image", media_folder: "/images/objets", public_folder: "/images/objets", hint: "Téléversez la photo du produit." }
